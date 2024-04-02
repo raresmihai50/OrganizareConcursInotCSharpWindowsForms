@@ -7,19 +7,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using OrganizareConcursInot.service;
 
 namespace OrganizareConcursInot
 {
-    public partial class Form1 : Form
+    public partial class LogInView : Form
     {
-        public Form1()
+        private Service serv; 
+        public LogInView(Service serv)
         {
+            this.serv = serv;
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public EventHandler handleLogIn()
         {
-            throw new System.NotImplementedException();
+            return (sender, e) =>
+            {
+                OrganizerView organizerView = new OrganizerView(serv);
+                organizerView.Show();
+                this.Hide(); // Ascundeți fereastra LogInView
+            };
         }
+
+        private EventHandler handleExit()
+        {
+            return (sender, e) =>
+            {
+                Application.Exit();
+            };
+        }
+        
     }
 }
