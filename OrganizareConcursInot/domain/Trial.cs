@@ -47,5 +47,27 @@ namespace OrganizareConcursInot.domain
         public String toString() {
             return "Id=" + id + " " + type + ' ' + details;
         }
+        public override string ToString()
+        {
+            return "Id=" + id + " " + type + ' ' + details;
+        }
+        public override int GetHashCode()
+        {
+            return id.GetHashCode();
+        }
+        public override bool Equals(object obj)
+        {
+            // Verifica dacă obiectul dat este nul sau nu este de tipul corect
+            if (obj == null || GetType() != obj.GetType())
+            {
+                return false;
+            }
+
+            // Converteste obiectul la tipul Trial
+            Trial other = (Trial)obj;
+
+            // Verifica daca id-urile sunt egale
+            return id == other.id;
+        }
     }
 }

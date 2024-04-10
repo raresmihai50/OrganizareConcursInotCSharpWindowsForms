@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using log4net;
 using OrganizareConcursInot.domain;
 using OrganizareConcursInot.repository;
 
@@ -10,6 +11,7 @@ public class Service
     private OrganizerDBRepository orgRepo;
     private TrialDBRepository trRepo;
     private ParticipantDBRepository partRepo;
+    private static readonly ILog logger = LogManager.GetLogger("Service");
 
     public Service(OrganizerDBRepository orgRepo, TrialDBRepository trRepo, ParticipantDBRepository partRepo)
     {
@@ -57,4 +59,36 @@ public class Service
     {
         partRepo.addParticipant(participant);
     }
+    public List<Participant> findParticipantsByTrials(List<Trial> trials)
+    {
+        logger.Info("Entering findParticipantByTrials" + trials.ToString());
+        List<Participant> participants = findAllParticipant();
+        List<Participant> result = new List<Participant>();
+
+        foreach (Participant part in participants)
+        {
+            List<Trial> partTrials = part.getTrials();
+            bool allTrialsFound = true;
+
+            // Verifică fiecare trial din lista dată
+            foreach (Trial trial in trials)
+            {
+                // Verifică dacă participantul are trialul din lista dată
+                if (!partTrials.Contains(trial))
+                {
+                    allTrialsFound = false;
+                    break; // Nu mai este necesar să continuăm căutarea dacă lipsește un trial
+                }
+            }
+
+            // Dacă toate trialele din lista dată sunt găsite în lista de triale a participantului, adaugă-l la rezultat
+            if (allTrialsFound)
+            {
+                result.Add(part);
+            }
+        }
+
+        return result;
+    }
+
 }

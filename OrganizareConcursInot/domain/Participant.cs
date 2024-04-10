@@ -6,10 +6,10 @@ namespace OrganizareConcursInot.domain
     public class Participant : Entity<int>
 
     {
-        private int id;
-        private string name;
-        private int age;
-        private List<Trial> trials;
+        public int id { get; set; }
+        public string name { get; set; }
+        public int age { get; set; }
+        public List<Trial> trials { get; set; }
 
         public Participant(int id, string name, int age, List<Trial> trials)
         {
@@ -58,8 +58,25 @@ namespace OrganizareConcursInot.domain
         {
             trials = events;
         }
-        public String toString() {
-            return "Id=" + id + " " + name + ' ' + age;
+
+        public String toString()
+        {
+            string participantInfo = "Id=" + id + " " + name + ' ' + age + " Trials: ";
+            foreach (Trial trial in trials)
+            {
+                participantInfo += trial.toString() + "; ";
+            }
+            return participantInfo;
+        }
+
+        public override string ToString()
+        {
+            string participantInfo = "Id=" + id + " " + name + ' ' + age + " Trials: ";
+            foreach (Trial trial in trials)
+            {
+                participantInfo += trial.toString() + "; ";
+            }
+            return participantInfo;
         }
     }
 }

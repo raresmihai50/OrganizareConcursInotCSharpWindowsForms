@@ -3,6 +3,7 @@
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=OrganizareConcursInot_002FAddParticipantView/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=OrganizareConcursInot_002FForm1/@EntryIndexedValue">False</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=OrganizareConcursInot_002FForm1/@EntryIndexRemoved">True</s:Boolean>
-	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=OrganizareConcursInot_002FLogInView/@EntryIndexedValue">True</s:Boolean>
-	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=OrganizareConcursInot_002FOrganizerView/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=OrganizareConcursInot_002FLogInView/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=OrganizareConcursInot_002FOrganizerView/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=OrganizareConcursInot_002FSearchView/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/Initialized/@EntryValue">True</s:Boolean></wpf:ResourceDictionary>

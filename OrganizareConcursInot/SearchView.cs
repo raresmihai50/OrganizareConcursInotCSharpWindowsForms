@@ -1,22 +1,51 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows.Forms;
 using OrganizareConcursInot.domain;
 using OrganizareConcursInot.service;
 
 namespace OrganizareConcursInot;
 
-public partial class AddParticipantView : Form
+public partial class SearchView : Form
 {
+    private BindingList<Participant> obs_lst = new BindingList<Participant>();
     private Service serv;
-    public AddParticipantView(Service serv)
+    public SearchView(Service serv)
     {
         this.serv = serv;
         InitializeComponent();
-        StyleOffCb();
         DistanceOffCb();
+        StyleOffCb();
+        setGridView();
     }
-    
+    private void setGridView()
+    {
+        dataGridView1.AutoGenerateColumns = false; // Dezactivează generarea automată a coloanelor
+
+        // Adaugă coloanele pentru ID, Name și Age
+        dataGridView1.Columns.Add("id_col", "ID");
+        dataGridView1.Columns["id_col"].DataPropertyName = "id";
+
+        dataGridView1.Columns.Add("name_col", "Name");
+        dataGridView1.Columns["name_col"].DataPropertyName = "name";
+
+        dataGridView1.Columns.Add("age_col", "Age");
+        dataGridView1.Columns["age_col"].DataPropertyName = "age";
+        
+        // Adaugă coloana Trials
+        dataGridView1.Columns.Add("trials_col", "Trials");
+        dataGridView1.Columns["trials_col"].DataPropertyName = "trials";
+
+
+        //DataGridViewTextBoxColumn trialsColumn = new DataGridViewTextBoxColumn();
+        //trialsColumn.HeaderText = "Trials";
+        //trialsColumn.Name = "trials_col";
+        //participantsGridView.Columns.Add(trialsColumn); // Adăugare coloană Trials la DataGridView
+
+        // Actualizează sursa de date a DataGridView cu lista de participanți
+        dataGridView1.DataSource = obs_lst;
+    }
     private void StyleOnCb()
     {
         backstroke_cb.Visible = true;
@@ -67,6 +96,7 @@ public partial class AddParticipantView : Form
         cb_1500m.Visible = false;
         cb_1500m.Checked = false;
     }
+
     private void distance_cb_CheckedChanged(object sender, EventArgs e)
     {
         if (distance_cb.Checked)
@@ -78,7 +108,12 @@ public partial class AddParticipantView : Form
             DistanceOffCb();
         }
     }
-    public void HandleAddParticipant(object sender, EventArgs e)
+    public void HandleCancel(object sender, EventArgs e)
+    {
+        this.Close();
+    }
+
+    public void HandleSearch(object sender, EventArgs e)
     {
         List<Trial> trials = new List<Trial>();
 
@@ -132,21 +167,20 @@ public partial class AddParticipantView : Form
 
         if (trials.Count == 0)
         {
-            MessageBox.Show("Sign Up for at least one Trial !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("Search for at least one Trial !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         else
         {
-            Random rand = new Random();
-            string name = textBox1.Text;
-            int age = int.Parse(textBox2.Text);
-            serv.AddParticipant(new Participant(rand.Next(), name, age, trials));
-            this.Close();
+            List<Participant> participants = serv.findParticipantsByTrials(trials);
+            obs_lst.Clear(); // Curățați lista existentă pentru a evita duplicarea datelor
+            foreach (Participant participant in participants)
+            {
+                obs_lst.Add(participant);
+            }
+
+            // Actualizați sursa de date a DataGridView cu lista de participanți
+            dataGridView1.DataSource = obs_lst;
+            
         }
     }
-
-    public void HandleCancel(object sender, EventArgs e)
-    {
-        this.Close();
-    }
-
 }

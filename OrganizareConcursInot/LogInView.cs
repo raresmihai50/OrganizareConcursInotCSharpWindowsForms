@@ -7,36 +7,49 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using OrganizareConcursInot.domain;
 using OrganizareConcursInot.service;
 
 namespace OrganizareConcursInot
 {
     public partial class LogInView : Form
     {
-        private Service serv; 
+        private Service serv;
+
         public LogInView(Service serv)
         {
             this.serv = serv;
             InitializeComponent();
         }
 
-        public EventHandler handleLogIn()
+        public void handleLogIn(object sender, EventArgs e)
         {
-            return (sender, e) =>
+            label1.Text = "";
+            String username = textBox1.Text;
+            String pass = textBox2.Text;
+            Organizer org = serv.findOrganizerByUsername(username);
+            if (org!=null)
             {
-                OrganizerView organizerView = new OrganizerView(serv);
-                organizerView.Show();
-                this.Hide(); // Ascundeți fereastra LogInView
-            };
+                if (pass == org.getPassword())
+                {
+                    OrganizerView organizerView = new OrganizerView(serv, org);
+                    organizerView.Show();
+                }
+                else
+                {
+                    label1.Text = "Wrong Password !";
+                }
+            }
+            else
+            {
+                label1.Text = "Username doesn't exist !";
+            }
+            //this.Hide(); // Ascundeți fereastra LogInView
         }
 
-        private EventHandler handleExit()
+        private void handleExit(object sender, EventArgs e)
         {
-            return (sender, e) =>
-            {
-                Application.Exit();
-            };
+            Application.Exit();
         }
-        
     }
 }

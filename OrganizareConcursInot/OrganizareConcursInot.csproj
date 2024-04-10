@@ -114,6 +114,12 @@
         <Compile Include="repository\ParticipantRepository.cs" />
         <Compile Include="repository\TrialDBRepository.cs" />
         <Compile Include="repository\TrialRepository.cs" />
+        <Compile Include="SearchView.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="SearchView.Designer.cs">
+          <DependentUpon>SearchView.cs</DependentUpon>
+        </Compile>
         <Compile Include="service\Service.cs" />
         <Compile Include="tests\Tests.cs" />
         <EmbeddedResource Include="AddParticipantView.resx">
@@ -134,6 +140,9 @@
             <AutoGen>True</AutoGen>
             <DependentUpon>Resources.resx</DependentUpon>
         </Compile>
+        <EmbeddedResource Include="SearchView.resx">
+          <DependentUpon>SearchView.cs</DependentUpon>
+        </EmbeddedResource>
         <None Include="log4net.config" />
         <None Include="packages.config" />
         <None Include="Properties\Settings.settings">
