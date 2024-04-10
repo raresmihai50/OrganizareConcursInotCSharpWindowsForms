@@ -42,6 +42,7 @@ public partial class OrganizerView : Form
         // Adaugă coloana Trials
         participantsGridView.Columns.Add("trials_col", "Trials");
         participantsGridView.Columns["trials_col"].DataPropertyName = "trials";
+        participantsGridView.CellFormatting += participantsGridView_CellFormatting;
 
 
         //DataGridViewTextBoxColumn trialsColumn = new DataGridViewTextBoxColumn();
@@ -65,10 +66,14 @@ public partial class OrganizerView : Form
         {
             obs_lst.Add(participant);
         }
-
         // Actualizați sursa de date a DataGridView cu lista de participanți
         participantsGridView.DataSource = obs_lst;
 
+        // for (int i = 0; i < obs_lst.Count; i++)
+        // {
+        //     Participant participant = obs_lst[i];
+        //     participantsGridView.Rows[i].Cells["trials_col"].Value = participant.getTrials().Count.ToString();
+        // }
         // Setarea datelor pentru coloana Trials
         // for (int i = 0; i < obs_lst.Count; i++)
         // {
@@ -83,6 +88,20 @@ public partial class OrganizerView : Form
         //     participantsGridView.Rows[i].Cells["trials_col"].Value = trialsInfo;
         //     Console.WriteLine(trialsInfo);
         // }
+    }
+    private void participantsGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+    {
+        if (e.ColumnIndex == participantsGridView.Columns["trials_col"].Index && e.RowIndex >= 0)
+        {
+            // Obține valoarea celulei din lista de participanți la rândul curent
+            var value = participantsGridView[e.ColumnIndex, e.RowIndex].Value;
+
+            // Verifică dacă valoarea este o listă de Trial-uri și, dacă da, setează textul celulei cu numărul de elemente din listă
+            if (value is List<Trial> trials)
+            {
+                e.Value = trials.Count;
+            }
+        }
     }
 
 

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 using OrganizareConcursInot.domain;
 using OrganizareConcursInot.service;
@@ -36,6 +37,7 @@ public partial class SearchView : Form
         // Adaugă coloana Trials
         dataGridView1.Columns.Add("trials_col", "Trials");
         dataGridView1.Columns["trials_col"].DataPropertyName = "trials";
+        dataGridView1.CellFormatting += participantsGridView_CellFormatting;
 
 
         //DataGridViewTextBoxColumn trialsColumn = new DataGridViewTextBoxColumn();
@@ -45,6 +47,20 @@ public partial class SearchView : Form
 
         // Actualizează sursa de date a DataGridView cu lista de participanți
         dataGridView1.DataSource = obs_lst;
+    }
+    private void participantsGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+    {
+        if (e.ColumnIndex == dataGridView1.Columns["trials_col"].Index && e.RowIndex >= 0)
+        {
+            // Obține valoarea celulei din lista de participanți la rândul curent
+            var value = dataGridView1[e.ColumnIndex, e.RowIndex].Value;
+
+            // Verifică dacă valoarea este o listă de Trial-uri și, dacă da, setează textul celulei cu numărul de elemente din listă
+            if (value is List<Trial> trials)
+            {
+                e.Value = trials.Count;
+            }
+        }
     }
     private void StyleOnCb()
     {

@@ -7,23 +7,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d535ce3a-0807-455e-89d2-d3799b572d7e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/OrganizareConcursInot/OrganizareConcursInot.csproj.DotSettings" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrganizareConcursInot/SearchView.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrganizareConcursInot/SearchView.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrganizareConcursInot/SearchView.resx" afterDir="false" />
+    <list default="true" id="d535ce3a-0807-455e-89d2-d3799b572d7e" name="Changes" comment="Full Windows forms">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.OrganizareConcursInot/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OrganizareConcursInot/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizareConcursInot.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/OrganizareConcursInot.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizareConcursInot/AddParticipantView.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OrganizareConcursInot/AddParticipantView.Designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizareConcursInot/AddParticipantView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OrganizareConcursInot/AddParticipantView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizareConcursInot/LogInView.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OrganizareConcursInot/LogInView.Designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizareConcursInot/LogInView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OrganizareConcursInot/LogInView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizareConcursInot/OrganizareConcursInot.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/OrganizareConcursInot/OrganizareConcursInot.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizareConcursInot/OrganizerView.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OrganizareConcursInot/OrganizerView.Designer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OrganizareConcursInot/OrganizerView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OrganizareConcursInot/OrganizerView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizareConcursInot/domain/Participant.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OrganizareConcursInot/domain/Participant.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizareConcursInot/domain/Trial.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OrganizareConcursInot/domain/Trial.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrganizareConcursInot/service/Service.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OrganizareConcursInot/service/Service.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrganizareConcursInot/SearchView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OrganizareConcursInot/SearchView.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +39,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/105da1159ec9496ab9310694c7b11dd2532bb0/7a/c6875c79/String.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/39505f33a71e46a7b40284f86f16a5dd42000/3b/8ce9f051/XmlConfigurator.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/downloads/Faculta_2_Sem_2/MPP/Prioect C#/OrganizareConcursInot/OrganizareConcursInot/AddParticipantView.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiProvider">{}</component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
@@ -134,6 +122,7 @@
       <workItem from="1712137506478" duration="33000" />
       <workItem from="1712567293072" duration="11162000" />
       <workItem from="1712654078194" duration="5236000" />
+      <workItem from="1712740085809" duration="2262000" />
     </task>
     <task id="LOCAL-00001" summary="commit 2">
       <option name="closed" value="true" />
@@ -143,7 +132,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712090436369</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Full Windows forms">
+      <option name="closed" value="true" />
+      <created>1712740146406</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1712740146406</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,7 +152,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="commit 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit 2" />
+    <MESSAGE value="Full Windows forms" />
+    <option name="LAST_COMMIT_MESSAGE" value="Full Windows forms" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
